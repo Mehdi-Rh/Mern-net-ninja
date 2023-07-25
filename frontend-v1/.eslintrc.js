@@ -23,6 +23,8 @@ module.exports = {
   rules: {
     "react/jsx-uses-react": "off",
     "react/no-unescaped-entities": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
+    "no-unused-vars": "warn",
+    "react/react-in-jsx-scope": "off",
   },
 };
