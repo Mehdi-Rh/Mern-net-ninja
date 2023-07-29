@@ -21,10 +21,12 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "prettier"],
   rules: {
-    "react/jsx-uses-react": "off",
+    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-vars": "warn",
     "react/no-unescaped-entities": "off",
     "prettier/prettier": "warn",
     "no-unused-vars": "warn",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
   },
 };
