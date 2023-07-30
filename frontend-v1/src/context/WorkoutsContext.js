@@ -3,8 +3,6 @@ import React, { createContext, useReducer } from "react";
 export const WorkoutsContext = createContext();
 
 const workoutsReducer = (state, action) => {
-  console.log("action.payload", action.payload);
-  console.log("state.workouts", state.workouts);
   switch (action.type) {
     case "SET_WORKOUTS":
       return {
