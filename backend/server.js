@@ -2,16 +2,17 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const cors =require('cors')
+const cors = require("cors");
 
 // express app
 const app = express();
 
 const workoutsRoutes = require("./routes/workouts");
+const userRoutes = require("./routes/user");
 
 // middleware
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log("req.path ", req.path);
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/workouts", workoutsRoutes);
+app.use("/api/user", userRoutes);
 
 // connect to db
 mongoose
