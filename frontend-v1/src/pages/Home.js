@@ -11,13 +11,9 @@ const Home = () => {
   const { user } = useAuthContext();
 
   useEffect(() => {
-    console.log("user", user);
-    if (!user) return;
     const fetchWorkouts = async () => {
       const response = await fetch("/api/workouts", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
+        headers: { Authorization: `Bearer ${user.token}` },
       });
       const json = await response.json();
 
@@ -26,14 +22,16 @@ const Home = () => {
       }
     };
 
-    fetchWorkouts();
-  }, [dispatch]);
+    if (user) {
+      fetchWorkouts();
+    }
+  }, [dispatch, user]);
 
   return (
     <div className="home">
       <div className="workouts">
         {workouts &&
-          workouts.map((workout) => <WorkoutDetails workout={workout} key={workout._id} />)}
+          workouts.map((workout) => <WorkoutDetails key={workout._id} workout={workout} />)}
       </div>
       <WorkoutForm />
     </div>
